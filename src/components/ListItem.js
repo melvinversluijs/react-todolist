@@ -1,7 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 /**
  * ListItem component, singular list item.
@@ -19,19 +17,16 @@ export default class ListItem extends React.Component {
   render() {
     const { id, label, completed } = this.props.item;
     return (
-      <li className="list-item">
+      <li className="todo-item">
         <input
           type="checkbox"
           name="completed"
-          defaultChecked={completed}
           onChange={() => this.props.toggleCompleted(id)}
+          checked={completed}
         />
-        <span className="list-item-label">{label}</span>
-        <button
-          className="list-item-remove"
-          onClick={() => this.props.deleteItem(id)}
-        >
-          <FontAwesomeIcon icon={faTrash} />
+        <span>{label}</span>
+        <button onClick={() => this.props.deleteItem(id)}>
+          <i>x</i>
         </button>
       </li>
     );

@@ -37,20 +37,17 @@ export default class AddItem extends React.Component {
    */
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Add task
+      <div className="add-todo-item">
+        <form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            name="label"
-            placeholder="Describe your new task"
-            id="label"
-            value={this.state.value}
+            placeholder="What todo?"
             onChange={this.handleChange}
+            name="name"
           />
-        </label>
-        <input type="submit" className="button" value="Submit" />
-      </form>
+          <button type="submit">Add</button>
+        </form>
+      </div>
     );
   }
 }
