@@ -17,17 +17,20 @@ export default class ListItem extends React.Component {
   render() {
     const { id, label, completed } = this.props.item;
     return (
-      <li className="todo-item">
-        <input
-          type="checkbox"
-          name="completed"
-          onChange={() => this.props.toggleCompleted(id)}
-          checked={completed}
-        />
-        <span>{label}</span>
-        <button onClick={() => this.props.deleteItem(id)}>
-          <i>x</i>
-        </button>
+      <li
+        className={completed ? "completed" : ""}
+        onClick={e =>
+          !e.target.classList.contains("delete") &&
+          this.props.toggleCompleted(id)
+        }
+      >
+        <span role="img" className="icon" arua-label="rocket">
+          {completed ? "🚀" : ""}
+        </span>
+        <span className="item">{label}</span>
+        <span className="delete" onClick={() => this.props.deleteItem(id)}>
+          ×
+        </span>
       </li>
     );
   }

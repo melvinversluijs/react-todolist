@@ -17,7 +17,7 @@ export default class List extends React.Component {
   render() {
     return (
       <div className="list-container">
-        <ul className="list">
+        <ul>
           {this.props.items.map(item => {
             return (
               <ListItem

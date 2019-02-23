@@ -92,13 +92,17 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <header>
           <h1>TODO List</h1>
+        </header>
+        <div className="container">
           <AddItem addItem={this.addItem} />
           <List
             items={this.state.items}
             deleteItem={this.deleteItem}
             toggleCompleted={this.toggleCompleted}
           />
+        </div>
       </div>
     );
   }

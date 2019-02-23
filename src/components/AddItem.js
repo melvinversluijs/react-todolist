@@ -36,18 +36,23 @@ export default class AddItem extends React.Component {
    * Render function.
    */
   render() {
+    const { value } = this.state;
+
     return (
-      <div className="add-todo-item">
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            placeholder="What todo?"
-            onChange={this.handleChange}
-            name="name"
-          />
-          <button type="submit">Add</button>
-        </form>
-      </div>
+      <form className="add-list-item" onSubmit={this.handleSubmit}>
+        <input
+          type="text"
+          placeholder="What todo?"
+          onChange={this.handleChange}
+          value={value}
+          name="name"
+        />
+        <button type="submit">
+          <span role="img" aria-label="Thumbsup">
+            👍
+          </span>
+        </button>
+      </form>
     );
   }
 }
